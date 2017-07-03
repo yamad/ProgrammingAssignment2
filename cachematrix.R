@@ -4,6 +4,12 @@
 ## expensive matrix operations to avoid recomputation
 ##
 ## for R Programming course in JHU Data Science Coursera track
+##
+##
+## Usage:
+##
+##   > m <- makeCacheMatrix(matrix(c(4, 2, 7, 6), 2, 2))
+##   > cacheSolve(m)
 
 
 ## create a cachematrix that can store its inverse
@@ -20,6 +26,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 ## return matrix inverse of x, using cached result if available
+##
+## x must be a cachematrix resulting from a call to `makeCacheMatrix`
 cacheSolve <- function(x, ...) {
   inv <- x$getinverse()
   if (!is.null(inv))
